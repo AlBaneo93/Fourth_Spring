@@ -1,32 +1,34 @@
 package edu.security.fourth.web.vo;
 
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.List;
+import java.util.Date;
 
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Getter
 @ToString
-public class Member {
-
+public class Board {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
 
-  private String email;
+  private String title;
 
-  private String password;
+  private String writer;
 
-  private String name;
 
-  private String role;
+  @CreatedDate
+  private Date createDate;
 
-  private List<String> friends;
+  @LastModifiedDate
+  private Date modifyDate;
+
 }

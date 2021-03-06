@@ -64,4 +64,12 @@ public class MemberController {
     map.put("result", "Delete Complete");
     return ResponseEntity.ok(map);
   }
+
+  @GetMapping("/friends/{id}")
+  public ResponseEntity<Map<String, Object>> getFriends(@PathVariable("id") long id) throws UserNotFoundException {
+    Map<String, Object> map = new HashMap<>();
+    map.put("result", service.read(Member.builder().id(id).build()).getFriends());
+
+    return ResponseEntity.ok(map);
+  }
 }
